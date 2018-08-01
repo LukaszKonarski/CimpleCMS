@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import pl.coderslab.entity.Article;
-import pl.coderslab.entity.Author;
+
 
 @Component
 @Transactional
@@ -28,9 +28,9 @@ public class ArticleDao {
         }
     }
 
-    public Author findById(long id) {
+    public Article findById(long id) {
 
-        return entityManager.find(Author.class, id);
+        return entityManager.find(Article.class, id);
     }
 
     public void update(Article entity) {
@@ -39,7 +39,7 @@ public class ArticleDao {
     }
 
     public void delete(long id) {
-        Author entity = entityManager.find(Author.class, id);
+        Article entity = entityManager.find(Article.class, id);
         entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
     }
 

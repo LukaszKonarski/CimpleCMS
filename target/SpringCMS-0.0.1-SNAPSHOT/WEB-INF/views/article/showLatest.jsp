@@ -24,9 +24,7 @@
                 <c:set var="content" value="${a.content}"/>
                 <c:set var="content200characters" value="${fn:substring(content, 1, 200)}"/>
                 <td>${content200characters}</td>
-	<%----%>
-				<%--<td><a href="<c:url value="/book/edit/${b.id}"/>">Edytuj</a>--%>
-					<%--<a href="<c:url value="/book/delete/${b.id}"/>">Usuń</a></td>--%>
+
 			</tr>
 		</c:forEach>
 	</table>

@@ -4,15 +4,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Edit the category</title>
+    <title>Edit the article</title>
 </head>
 <body>
-<h1>Edit the category</h1>
+<h1>Edit the article</h1>
 
-<%--@elvariable id="category" type=""--%>
-<form:form method="post" modelAttribute="category">
-    <form:input path="name"/>
-    <form:input path="description"/>
+<%--@elvariable id="article" type=""--%>
+<form:form method="post" modelAttribute="article">
+    <form:input path="title"/>
+    <form:hidden path="created"/>
+    <form:textarea path="content" cols="30" rows="20"/>
     <input type="submit" value="Edit">
 
 </form:form>

@@ -92,16 +92,4 @@ public class ArticleController {
         return "article/show";
     }
 
-//    @GetMapping("/createArticle")
-//	@ResponseBody
-//	public String createArticle() {
-//		Article article = new Article();
-//		article.setTitle("tesssst");
-//		article.getAuthor();
-//		article.getCategories();
-//		article.setContent("This is neeou.");
-//		articleDao.save(article);
-//
-//		return "success!";
-//	}
 }

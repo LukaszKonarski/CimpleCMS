@@ -8,8 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -73,15 +71,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return localeResolver;
     }
 
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(this.getCategoryConverter());
+    }
 
-//    public void addFormatters(FormatterRegistry registry) {
-//        registry.addConverter(this.getCategoryConverter());
-//    }
-//
-//    @Bean
-//    public CategoryConverter getCategoryConverter() {
-//        return new CategoryConverter();
-//    }
+    @Bean
+    public CategoryConverter getCategoryConverter() {
+        return new CategoryConverter();
+    }
 
 
     @Bean

@@ -9,13 +9,13 @@
 <h1>Add an article</h1>
 
 <%--@elvariable id="article" type=""--%>
-<form:form method="post" modelAttribute="article">
+<form:form method="post" modelAttribute="article" action="/article/add">
 
     <p>Title:</p>
-    <form:input path="title"/>
+    <form:input  path="title"/>
 
     <p>Author:</p>
-    <form:radiobuttons itemLabel="lastName" itemValue="id" items="${authors}" path="author.id"/>
+    <form:radiobuttons itemLabel="lastName" itemValue="id" path="author.id" items="${authors}" />
 
     <p>Category:</p>
     <form:select itemLabel="name" itemValue="id" path="categories" items="${categoryList}" multiple="true"/>

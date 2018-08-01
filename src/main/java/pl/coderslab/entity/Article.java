@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="articles")
@@ -18,7 +19,7 @@ public class Article {
 	private long id;
 	@Column(length = 200)
 	@NotNull
-    @Max(200)
+    @Size(max=200)
 	private String title;
 	@ManyToOne
 	private Author author;
@@ -28,7 +29,7 @@ public class Article {
 	@Column
     @Lob
     @NotNull
-    @Min(500)
+	@Size(min=100)
 	private String content;
 	private LocalDate created;
 	private LocalDate updated;

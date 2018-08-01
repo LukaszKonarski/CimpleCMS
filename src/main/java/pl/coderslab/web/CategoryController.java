@@ -9,8 +9,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Category;
 
-
-
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
@@ -43,7 +41,6 @@ public class CategoryController {
             categoryDao.save(category);
             return "redirect: /category/show";
         }
-
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
