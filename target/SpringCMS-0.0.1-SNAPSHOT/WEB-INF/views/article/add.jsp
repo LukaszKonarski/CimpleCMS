@@ -4,6 +4,15 @@
 <html>
 <head>
     <title>Add an article</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue";
+        }
+
+        p {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 <h1>Add an article</h1>
@@ -12,10 +21,10 @@
 <form:form method="post" modelAttribute="article" action="/article/add">
 
     <p>Title:</p>
-    <form:input  path="title"/>
+    <form:input path="title"/>
 
     <p>Author:</p>
-    <form:radiobuttons itemLabel="lastName" itemValue="id" path="author.id" items="${authors}" />
+    <form:radiobuttons itemLabel="lastName" itemValue="id" path="author.id" items="${authors}"/>
 
     <p>Category:</p>
     <form:select itemLabel="name" itemValue="id" path="categories" items="${categoryList}" multiple="true"/>
@@ -23,7 +32,9 @@
     <p>Content:</p>
     <form:textarea path="content" cols="30" rows="20"/>
 
-    <input type="submit" value="Add">
+    <p>
+        <input type="submit" value="Add">
+    </p>
 
 </form:form>
 </body>

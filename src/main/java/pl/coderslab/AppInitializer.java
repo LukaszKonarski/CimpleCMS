@@ -5,7 +5,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import org.springframework.orm.hibernate5.support.OpenSessionInViewFilter;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -23,5 +26,11 @@ public class AppInitializer implements WebApplicationInitializer {
         fr.setInitParameter("encoding", "UTF-8");
         fr.setInitParameter("forceEncoding", "true");
         fr.addMappingForUrlPatterns(null, true, "/*");
+
+        FilterRegistration.Dynamic sessionFilter = container.addFilter("OpenEntityInViewFilter", new OpenEntityManagerInViewFilter());
+        sessionFilter.setInitParameter("singleSession", "true");
+        sessionFilter.addMappingForUrlPatterns(null, true, "/*");
+
+        container.addListener(new ContextLoaderListener(ctx));
     }
 }

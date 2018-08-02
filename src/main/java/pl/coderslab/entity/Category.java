@@ -1,9 +1,9 @@
 package pl.coderslab.entity;
 
-import org.hibernate.annotations.ManyToAny;
+
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 100)
-    @Min(5)
+    @Size(min = 5)
     private String name;
     @Column(nullable = true)
 

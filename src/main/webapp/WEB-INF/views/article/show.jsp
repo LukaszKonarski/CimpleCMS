@@ -6,6 +6,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Show Articles</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue";
+        }
+    </style>
 </head>
 <body>
 <h1>Show Articles</h1>

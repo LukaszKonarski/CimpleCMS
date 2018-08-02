@@ -23,7 +23,7 @@ public class Article {
 	private String title;
 	@ManyToOne
 	private Author author;
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,})
     @NotNull
 	private List<Category> categories = new ArrayList<>();
 	@Column
