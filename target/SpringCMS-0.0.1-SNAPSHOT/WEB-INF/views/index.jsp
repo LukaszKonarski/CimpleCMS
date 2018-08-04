@@ -5,17 +5,20 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Latest articles</title>
-    <style>
-        body {
-            font-family: "Helvetica Neue";
-        }
-
-    </style>
+    <title>Homepage</title>
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 </head>
 <body>
 <h1>Latest articles</h1>
-<%--<a href="<c:url   value="/book/add"/>">Dodaj książkę</a>--%>
+
+<table>
+    <tr>
+        <th><a href="<c:url  value="/article/show"/>">Show all articles</a></th>
+        <th><a href="<c:url  value="/category/show"/>">Show all categories</a></th>
+        <th><a href="<c:url  value="/author/show"/>">Show all authors</a></th>
+    </tr>
+</table>
+
 <table>
     <tr>
         <th>Title</th>
@@ -33,5 +36,16 @@
         </tr>
     </c:forEach>
 </table>
+
+<h3>Show articles by category:</h3>
+<ul>
+    <c:forEach items="${categoryList}" var="c">
+        <li><a href="<c:url value="/article/showByCategory/${c.id}"/>">${c.name}</a></li>
+    </c:forEach>
+</ul>
+
+<h3><a href="<c:url  value="/article/add"/>">Add an article</a></h3>
+
+
 </body>
 </html>

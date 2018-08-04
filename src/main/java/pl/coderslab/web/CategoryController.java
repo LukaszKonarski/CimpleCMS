@@ -56,7 +56,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String delete(@PathVariable Long id, Model model) {
+    public String deleteCathegory(@PathVariable Long id, Model model) {
         categoryDao.delete(id);
         return "redirect: /category/show";
     }

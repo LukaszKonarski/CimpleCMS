@@ -4,18 +4,20 @@
 <html>
 <head>
     <title>Edit the article</title>
-    <style>
-        body {
-            font-family: "Helvetica Neue";
-        }
-
-        p {
-            display: block;
-        }
-    </style>
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 </head>
 <body>
+
 <h1>Edit the article</h1>
+
+<table>
+    <tr>
+        <th><a href="<c:url  value="/index"/>">Homepage</a></th>
+        <th><a href="<c:url  value="/article/show"/>">Show all articles</a></th>
+        <th><a href="<c:url  value="/category/show"/>">Show all categories</a></th>
+        <th><a href="<c:url  value="/author/show"/>">Show all authors</a></th>
+    </tr>
+</table>
 
 <%--@elvariable id="article" type=""--%>
 <form:form method="post" modelAttribute="article">

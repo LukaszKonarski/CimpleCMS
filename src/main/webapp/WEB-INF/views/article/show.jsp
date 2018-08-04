@@ -6,15 +6,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Show Articles</title>
-    <style>
-        body {
-            font-family: "Helvetica Neue";
-        }
-    </style>
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 </head>
 <body>
-<h1>Show Articles</h1>
-<a href="<c:url  value="/article/add"/>">Add an article</a>
+
+<h1>Show Authors</h1>
+
+<table>
+    <tr>
+        <th><a href="<c:url  value="/index"/>">Homepage</a></th>
+        <th><a href="<c:url  value="/article/show"/>">Show all articles</a></th>
+        <th><a href="<c:url  value="/category/show"/>">Show all categories</a></th>
+        <th><a href="<c:url  value="/author/show"/>">Show all authors</a></th>
+    </tr>
+</table>
+
 <table>
     <tr>
         <th>Title</th>
@@ -34,5 +40,8 @@
         </tr>
     </c:forEach>
 </table>
+
+<h3><a href="<c:url  value="/article/add"/>">Add an article</a></h3>
+
 </body>
 </html>

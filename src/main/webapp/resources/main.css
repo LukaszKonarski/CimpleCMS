@@ -1,0 +1,12 @@
+body {
+    font-family: "Helvetica Neue";
+}
+
+p,a {
+    display: block;
+}
+
+th, td {
+    padding: 5px;
+    min-width: 120px;
+}

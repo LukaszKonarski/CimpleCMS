@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Show Articles</title>
+    <title>Show Authors</title>
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 </head>
 <body>
@@ -23,25 +23,21 @@
 
 <table>
     <tr>
-        <th>Title</th>
-        <th>Created</th>
-        <th>Article</th>
-        <th>Actions</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
     </tr>
-    <c:forEach items="${articles}" var="a">
+    <c:forEach items="${authors}" var="a">
         <tr>
-            <td>${a.title}</td>
-            <td>${a.created}</td>
-            <c:set var="content" value="${a.content}"/>
-            <c:set var="content100characters" value="${fn:substring(content, 1, 100)}"/>
-            <td>${content100characters}</td>
+            <td>${a.firstName}</td>
+            <td>${a.lastName}</td>
             <td><a href="<c:url value="/article/edit/${a.id}"/>">Edit</a>
                 <a href="<c:url value="/article/delete/${a.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
 
-<h3><a href="<c:url  value="/article/add"/>">Add an article</a></h3>
+<h3><a href="<c:url  value="/author/add"/>">Add an author</a></h3>
 
 </body>
 </html>

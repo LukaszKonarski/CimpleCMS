@@ -21,9 +21,9 @@ public class ArticleDao {
 
     public void save(Article entity) {
         entity.setCreated(LocalDate.now());
-        if(entity.getId()>0){
+        if (entity.getId() > 0) {
             entityManager.persist(entity);
-        } else{
+        } else {
             entityManager.merge(entity);
         }
     }
@@ -51,5 +51,13 @@ public class ArticleDao {
     public List<Article> getAll() {
         Query query = this.entityManager.createQuery("SELECT a FROM Article a");
         return query.getResultList();
+    }
+
+    public List<Article> showByCategory(long id) {
+        Query query = this.entityManager.createQuery("SELECT a FROM Article a JOIN a.categories category WHERE category.id = :id");
+        query.setParameter("id", id);
+        return query.getResultList();
+
+
     }
 }
