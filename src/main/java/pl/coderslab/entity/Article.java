@@ -1,13 +1,13 @@
 package pl.coderslab.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -17,18 +17,16 @@ public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(length = 200)
-	@NotNull
+	@NotBlank
     @Size(max=200)
 	private String title;
 	@ManyToOne
 	private Author author;
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,})
-    @NotNull
+  	@NotEmpty
 	private List<Category> categories = new ArrayList<>();
 	@Column
     @Lob
-    @NotNull
 	@Size(min=100)
 	private String content;
 	private LocalDate created;

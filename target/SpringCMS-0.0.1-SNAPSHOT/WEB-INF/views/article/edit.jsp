@@ -22,21 +22,33 @@
 <%--@elvariable id="article" type=""--%>
 <form:form method="post" modelAttribute="article">
 
-    <p>Edit title:</p>
+    <p>
+        Edit title:
+    </p>
     <form:input path="title"/>
 
-    <p>Edit author:</p>
+    <p>
+        Edit author:
+    </p>
     <form:radiobuttons itemLabel="lastName" itemValue="id" path="author.id" items="${authors}"/>
 
-    <p>Edit category:</p>
+    <p>
+        Edit category(press and hold shift to choose more than one):
+    </p>
     <form:select itemLabel="name" itemValue="id" path="categories" items="${categoryList}" multiple="true"/>
 
-    <p>Edit content:</p>
+    <p>
+        Edit content:
+    </p>
     <form:textarea path="content" cols="50" rows="20"/>
 
     <form:hidden path="created"/>
-    <p><input type="submit" value="edit">
+
+    <p>
+        <input type="submit" value="edit">
     </p>
+
+    <form:errors path="content" cssClass="error"></form:errors>
 
 </form:form>
 </body>

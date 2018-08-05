@@ -51,9 +51,13 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public String processEditedAuthor(@ModelAttribute Author author) {
-        authorDao.update(author);
-        return "redirect: /author/show";
+    public String processEditedAuthor(@Validated @ModelAttribute Author author, BindingResult result, @PathVariable Long id) {
+        if (result.hasErrors()) {
+            return "redirect: /author/edit/" + id;
+        } else {
+            authorDao.update(author);
+            return "redirect: /author/show";
+        }
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

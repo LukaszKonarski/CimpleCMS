@@ -50,9 +50,13 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public String processEditedCategory(@ModelAttribute Category category) {
-        categoryDao.update(category);
-        return "redirect: /category/show";
+    public String processEditedCategory(@Validated @ModelAttribute Category category, BindingResult result, @PathVariable Long id) {
+        if (result.hasErrors()) {
+            return "redirect: /category/edit/" + id;
+        } else {
+            categoryDao.update(category);
+            return "redirect: /category/show";
+        }
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

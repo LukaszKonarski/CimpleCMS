@@ -1,19 +1,21 @@
 package pl.coderslab.web;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import pl.coderslab.entity.Article;
 import pl.coderslab.entity.Article;
 import pl.coderslab.entity.Author;
 import pl.coderslab.entity.Category;
 import pl.coderslab.repository.ArticleRepository;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -68,9 +70,13 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String processNewArticle(@ModelAttribute Article article) {
-        articleDao.save(article);
-        return "redirect: /article/show";
+    public String processNewArticle(@Validated @ModelAttribute Article article, BindingResult result) {
+        if(result.hasErrors()){
+            return "article/add";
+        } else {
+            articleDao.save(article);
+            return "redirect: /article/show";
+        }
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
@@ -80,9 +86,13 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public String processEditedArticle(@ModelAttribute Article article) {
-        articleDao.update(article);
-        return "redirect: /article/show";
+    public String processEditedArticle(@Validated @ModelAttribute Article article,BindingResult result, @PathVariable Long id) {
+        if(result.hasErrors()) {
+            return "redirect: /article/edit/" + id;
+        } else {
+            articleDao.update(article);
+            return "redirect: /article/show";
+        }
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

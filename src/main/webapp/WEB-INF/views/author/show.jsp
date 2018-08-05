@@ -31,8 +31,8 @@
         <tr>
             <td>${a.firstName}</td>
             <td>${a.lastName}</td>
-            <td><a href="<c:url value="/article/edit/${a.id}"/>">Edit</a>
-                <a href="<c:url value="/article/delete/${a.id}"/>">Delete</a></td>
+            <td><a href="<c:url value="/author/edit/${a.id}"/>">Edit</a>
+                <a href="<c:url value="/author/delete/${a.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

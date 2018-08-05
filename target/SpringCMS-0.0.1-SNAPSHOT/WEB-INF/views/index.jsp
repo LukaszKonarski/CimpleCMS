@@ -45,6 +45,8 @@
 </ul>
 
 <h3><a href="<c:url  value="/article/add"/>">Add an article</a></h3>
+<h3><a href="<c:url  value="/author/add"/>">Add an author</a></h3>
+<h3><a href="<c:url  value="/category/add"/>">Add a category</a></h3>
 
 
 </body>

@@ -28,7 +28,7 @@
     <p>Author:</p>
     <form:radiobuttons itemLabel="lastName" itemValue="id" path="author.id" items="${authors}"/>
 
-    <p>Category:</p>
+    <p>Category(press and hold shift to choose more than one):</p>
     <form:select itemLabel="name" itemValue="id" path="categories" items="${categoryList}" multiple="true"/>
 
     <p>Content:</p>
@@ -37,6 +37,8 @@
     <p>
         <input type="submit" value="Add">
     </p>
+
+    <form:errors path="*" cssClass="error"></form:errors>
 
 </form:form>
 </body>

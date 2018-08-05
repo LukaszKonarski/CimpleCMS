@@ -2,6 +2,8 @@ package pl.coderslab.entity;
 
 
 
+
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -13,11 +15,9 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(length = 100)
-    @Size(min = 5)
+    @Size(min = 5, max = 100)
     private String name;
     @Column(nullable = true)
-
     private String description;
     @ManyToMany(mappedBy = "categories")
     private List<Article> articles = new ArrayList<>();
